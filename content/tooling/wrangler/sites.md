@@ -8,6 +8,7 @@ weight: 6
 - [wrangler.toml](#wrangler-toml)
 - [Storage Limits](#storage-limits)
 - [Ignoring Subsets of Static Assets](#ignoring-subsets-of-static-assets)
+- [Customizing your Build](#customizing-your-build)
 
 Workers Sites require the latest version of [Wrangler](https://github.com/cloudflare/wrangler) and the Workers [Unlimited plan](https://workers.cloudflare.com/sites#plans).
 
@@ -126,3 +127,7 @@ Wrangler will always ignore:
 ##### More about include/exclude patterns
 
 You can learn more about the standard patterns used for include and exclude in the [gitignore documentation](https://git-scm.com/docs/gitignore).
+
+### Customizing your Build
+
+Workers Sites projects use webpack by default. You can [bring your own webpack config](/tooling/wrangler/webpack/#bring-your-own-configuration), however it is important to be cognizant of your `entry` and `context` settings.
