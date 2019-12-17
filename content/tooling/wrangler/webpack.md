@@ -94,6 +94,19 @@ module.exports = {
 }
 ```
 
+### Using with Workers Sites
+
+Because Wrangler commands are run from the project root, but your site worker is typically nested in a child directory  `workers-site`, you must be mindful when using custom webpack configuration files for Workers Sites projects. We recommend that you keep your webpack config in the workers-site directory, and set `context = __dirname`. This will assure that all of the paths you set in your configuration are evaluated relative to the webpack config, and not the wrangler.toml.
+
+```js
+module.exports = {
+  context: __dirname,
+  target: "webworker",
+  entry: "./index.js",
+  mode: "production"
+}
+```
+
 ## Shimming globals
 
 Sometimes you want to bring your own implementation of an existing global API. You can do this by [shimming](https://webpack.js.org/guides/shimming/#shimming-globals) a third party module in its place as a webpack plugin.
